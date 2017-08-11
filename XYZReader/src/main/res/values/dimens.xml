@@ -1,0 +1,23 @@
+<resources>
+    <dimen name="toolbar_height">24dp</dimen>
+    <dimen name="textprotection_bottom_height">64dp</dimen>
+    <dimen name="appbar_detail_height">500dp</dimen>
+    <dimen name="appbar_list_height">100dp</dimen>
+    <!-- detail -->
+    <dimen name="detail_title_text_size">32sp</dimen>
+    <dimen name="detail_body_text_size">22sp</dimen>
+    <item name="detail_body_line_spacing_multiplier" format="float" type="fraction">1.25</item>
+
+    <dimen name="title_top_margin">48dp</dimen>
+    <dimen name="title_bottom_margin">16dp</dimen>
+    <dimen name="left_keyline">16dp</dimen>
+    <dimen name="small_margin">8dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="half_keyline">8dp</dimen>
+    <dimen name="keyline">16dp</dimen>
+    <dimen name="subtitle_margin_right">64dp</dimen>
+
+    <dimen name="appbar_elevation">40dp</dimen>
+    <dimen name="fab_elevation">6dp</dimen>
+
+</resources>
