@@ -85,6 +85,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="true"
+        android:fillViewport="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <TextView
@@ -108,8 +109,10 @@
         android:layout_height="wrap_content"
         android:contentDescription="@string/action_share"
         android:src="@drawable/ic_share"
-        app:layout_anchor="@id/collapsing_toolbar"
+        app:layout_anchor="@id/nested_scroll_view"
         app:layout_anchorGravity="bottom|right|end"
+        android:layout_marginRight="@dimen/keyline"
+        android:layout_marginBottom="@dimen/keyline"
         app:elevation="@dimen/fab_elevation"
         />
 

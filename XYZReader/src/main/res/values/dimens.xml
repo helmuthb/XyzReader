@@ -19,5 +19,6 @@
 
     <dimen name="appbar_elevation">40dp</dimen>
     <dimen name="fab_elevation">6dp</dimen>
+    <dimen name="text_margin_right">56dp</dimen>
 
 </resources>
