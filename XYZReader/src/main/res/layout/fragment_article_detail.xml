@@ -1,5 +1,4 @@
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fragment_article_detail"
     android:layout_width="match_parent"
@@ -80,13 +79,14 @@
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.widget.NestedScrollView
+    <com.example.xyzreader.ui.BottomDetectNestedScrollView
         android:id="@+id/nested_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="true"
         android:fillViewport="true"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:bottom_tolerance="@dimen/detail_body_bottom_margin">
 
         <TextView
             android:id="@+id/article_body"
@@ -101,7 +101,7 @@
             android:textSize="@dimen/detail_body_text_size"
             />
 
-    </android.support.v4.widget.NestedScrollView>
+    </com.example.xyzreader.ui.BottomDetectNestedScrollView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/share_fab"
@@ -113,6 +113,7 @@
         app:layout_anchorGravity="bottom|right|end"
         android:layout_marginRight="@dimen/keyline"
         android:layout_marginBottom="@dimen/keyline"
+        app:layout_behavior="com.example.xyzreader.ui.HideFabOnScrollBehavior"
         app:elevation="@dimen/fab_elevation"
         />
 

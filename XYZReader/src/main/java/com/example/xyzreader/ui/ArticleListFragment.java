@@ -33,8 +33,6 @@ import com.example.xyzreader.util.RefreshStatus;
 import com.example.xyzreader.util.Util;
 import com.example.xyzreader.viewmodel.ArticleViewModel;
 import com.squareup.otto.Subscribe;
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 import java.util.List;
@@ -231,7 +229,7 @@ public class ArticleListFragment extends LifecycleFragment {
         @BindView(R.id.placeholder)
         AspectRatioImageView placeholderImageView;
         @BindView(R.id.thumbnail)
-        ImageView thumbnailImageView;
+        AspectRatioImageView thumbnailImageView;
         @BindView(R.id.article_title)
         TextView titleTextView;
         @BindView(R.id.article_subtitle)
@@ -250,6 +248,7 @@ public class ArticleListFragment extends LifecycleFragment {
             titleTextView.setText(item.title);
             placeholderImageView.setVisibility(View.VISIBLE);
             placeholderImageView.setAspectRatio(item.aspectRatio);
+            thumbnailImageView.setAspectRatio(item.aspectRatio);
             // load the real image
             /* */
             glide

@@ -2,8 +2,12 @@ package com.example.xyzreader.ui;
 
 import android.arch.lifecycle.LifecycleFragment;
 import android.arch.lifecycle.Observer;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -14,9 +18,11 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.ShareCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.transition.TransitionInflater;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -135,6 +141,24 @@ public class ArticleDetailFragment extends LifecycleFragment
                                     appBarLayout.setExpanded(isExpanded);
                                 }
                             });
+                            if (resource instanceof BitmapDrawable) {
+                                Bitmap bitmap = ((BitmapDrawable) resource).getBitmap();
+                                Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
+                                    @Override
+                                    public void onGenerated(Palette palette) {
+                                        // from SO https://stackoverflow.com/a/17277714/813725
+                                        TypedValue typedValue = new TypedValue();
+                                        Resources.Theme theme = getActivity().getTheme();
+                                        theme.resolveAttribute(R.attr.colorPrimary, typedValue, true);
+                                        @ColorInt int color = typedValue.data;
+                                        // we will try: Dark vibrant color, if not then dark muted,
+                                        // if not then the primary color
+                                        collapsingToolbarLayout.setContentScrimColor(
+                                                palette.getDarkVibrantColor(
+                                                        palette.getDarkMutedColor(color)));
+                                    }
+                                });
+                            }
                             return false;
                         }
                     })

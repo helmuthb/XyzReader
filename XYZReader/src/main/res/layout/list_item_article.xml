@@ -14,11 +14,11 @@
         android:layout_height="wrap_content"
         >
 
-        <ImageView
+        <com.example.xyzreader.ui.AspectRatioImageView
             android:id="@+id/thumbnail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleType="fitCenter"
+            android:scaleType="centerCrop"
             android:transitionName="@string/transitionname_photo"
             />
 
